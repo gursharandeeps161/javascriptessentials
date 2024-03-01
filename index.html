@@ -1,0 +1,69 @@
+<!-- 
+* @name: Assignement1
+* @Course Code: SODV1201
+* @class: Software Development Diploma program.
+* @author: Gursharandeep Singh. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>My Profile</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header-section">
+        <div class="mycontainer">
+            <!-- Navigation Menu -->
+            <nav>
+                <!-- Logo -->
+                <img src="gilllogo.jpg" class="logo">
+                <!-- Menu Items -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mark_to_grade.html">Mark to Grade Converter</a></li>
+                    <li><a href="staff_page.html">Staff Page</a></li>
+                    <li><a href="weather.html">Weather</a></li>
+                </ul>
+            </nav>
+            <!-- Header Text -->
+            <div class="header-text">
+                <!-- Job Title -->
+                <p>Web-Developer</p>
+                <!-- Main Heading with Name -->
+                <h1 id="picturename">Hi, I'm <span>Gursharandeep Singh </span><br>Gill</h1>
+                <!-- Introduction Paragraph -->
+                <div class="para">I am outgoing, dedicated, and open-minded. I get across to people and adjust to changes with ease. I believe that a person should work on developing their professional skills and learning new things all the time. My hobbies are playing Football, watching movies and building websites.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <!-- Copyright Information -->
+            <p>&copy; Gursharandeep Singh | <span id="current-year"></span></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Section -->
+    <script>
+        // Display the name after 10 seconds
+        setTimeout(function() {
+            document.getElementById('picturename').style.display = 'block';
+        }, 10000); // 10 seconds
+    
+        // Set current year in the footer
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+    </script>
+    <!-- External JavaScript file for staff data -->
+    <script src="staff_data.js"></script>
+</body>
+</html>

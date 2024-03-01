@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Staff Page</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Heading -->
+            <h1>Staff Information</h1>
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <!-- Menu Items -->
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mark_to_grade.html">Mark to Grade Converter</a></li>
+                    <li><a href="staff_page.html">Staff Page</a></li>
+                    <li><a href="weather.html">Weather</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dropdown menu to select sorting option -->
+    <div class="container">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="name">Name</option>
+            <option value="salary">Salary</option>
+        </select>
+        <button onclick="sortStaff()">Sort</button>
+    </div>
+
+    <!-- Main Content Section -->
+    <section class="container" id="staff-list">
+        <!-- Staff information will be dynamically added here -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Copyright Information -->
+        <p>&copy; Gursharandeep Singh | <span id="current-year"></span></p>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script src="staff_data.js"></script>
+    <script>
+        // Function to run when the window loads
+        window.onload = function() {
+            // Display staff information
+            displayStaff(dataSet);
+            // Set current year in the footer
+            document.getElementById('current-year').innerText = new Date().getFullYear();
+        };
+
+        // Function to display staff information
+        function displayStaff(dataSet) {
+            var staffList = document.getElementById('staff-list');
+            // Clear previous content
+            staffList.innerHTML = '';
+            // Loop through each staff data
+            dataSet.forEach(function(data) {
+                // Create a div for each staff member
+                var staffItem = document.createElement('div');
+                // Fill in staff information
+                staffItem.innerHTML = `
+                    <h2>${data[0]}</h2>
+                    <p><strong>Job Title:</strong> ${data[1]}</p>
+                    <p><strong>Location:</strong> ${data[2]}</p>
+                    <p><strong>ID:</strong> ${data[3]}</p>
+                    <p><strong>Start Date:</strong> ${data[4]}</p>
+                    <p><strong>Salary:</strong> ${data[5]}</p>
+                    <hr>
+                `;
+                // Append staff item to the staff list
+                staffList.appendChild(staffItem);
+            });
+        }
+
+        // Function to sort staff
+        function sortStaff() {
+            var sortBy = document.getElementById('sort').value;
+            if (sortBy === 'name') {
+                dataSet.sort(function(a, b) {
+                    return a[0].localeCompare(b[0]);
+                });
+            } else if (sortBy === 'salary') {
+                dataSet.sort(function(a, b) {
+                    return parseFloat(a[5].replace('$', '').replace(/,/g, '')) - parseFloat(b[5].replace('$', '').replace(/,/g, ''));
+                });
+            }
+            // Display sorted staff
+            displayStaff(dataSet);
+        }
+    </script>
+</body>
+</html>

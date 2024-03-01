@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Mark to Grade Converter</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Heading -->
+            <h1>Mark to Grade Converter</h1>
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <!-- Menu Items -->
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mark_to_grade.html">Mark to Grade Converter</a></li>
+                    <li><a href="staff_page.html">Staff Page</a></li>
+                    <li><a href="weather.html">Weather</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="container">
+        <!-- Section Heading -->
+        <h2>Mark to Grade Converter</h2>
+        <!-- Input Field for Mark -->
+        <input type="text" id="mark-input" placeholder="Enter Mark">
+        <!-- Button to Convert -->
+        <button onclick="markToGrade()">Convert</button>
+        <!-- Validation Message -->
+        <p id="validation-message"></p>
+        <!-- Console Output (if any) -->
+        <div id="console-output"></div>
+        <!-- Result Display Area -->
+        <p id="grade-result"></p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <!-- Copyright Information -->
+            <p>&copy; Gursharandeep Singh | <span id="current-year"></span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script src="mark_to_grade.js"></script>
+</body>
+</html>
